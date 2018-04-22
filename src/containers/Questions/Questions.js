@@ -39,7 +39,7 @@ class Questions extends Component {
           </div>
         </div>
 
-        {!this.props.questions.size && noQuestions}
+        {this.props.questions.size === 0 && noQuestions}
 
         <div className="questions__list list">
           {this.props.questions.map((item) => {
