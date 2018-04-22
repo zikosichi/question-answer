@@ -6,6 +6,13 @@ import Question from './Question/Question'
 
 class Questions extends Component {
   render() {
+
+    const noQuestions = (
+      <div className="questions__list list p-3 text-muted font-weight-lighter">
+        No questions yet. Why don't you create one? 👇
+      </div>
+    )
+
     return (
       <div className="questions">
         <div className="d-flex align-items-center">
@@ -18,8 +25,10 @@ class Questions extends Component {
               Order by
             </span>
           </div>
-
         </div>
+
+        {!this.props.questions.size && noQuestions}
+
         <div className="questions__list list">
           {this.props.questions.map((item) => {
             return(
