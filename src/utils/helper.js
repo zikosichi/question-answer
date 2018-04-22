@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable'
-import _ from 'lodash'
 
 export const orderQuestions = (questions, sortBy) => {
 

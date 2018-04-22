@@ -7,6 +7,10 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, compose } from "redux";
 import { Provider } from "react-redux";
 
+import { persistReducer } from 'redux-persist'
+import { persistStore, autoRehydrate } from 'redux-persist-immutable'
+import storage from 'redux-persist/lib/storage'
+
 import { reducer } from "./store/reducer";
 
 // dev tools middleware
@@ -16,11 +20,15 @@ if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'production') {
   reduxDevTools = a => a;
 }
 
-// create a redux store
-let store = createStore(
-  reducer,
-  compose(reduxDevTools)
-);
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, reducer, autoRehydrate())
+
+let store = createStore(persistedReducer, compose(autoRehydrate(), reduxDevTools))
+persistStore(store)
 
 ReactDOM.render(
   <Provider store={store}>
