@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import './Questions.css';
 
 import Question from './Question/Question'
+import { changeOrdering } from '../../store/actions'
 
 class Questions extends Component {
   render() {
@@ -28,6 +29,7 @@ class Questions extends Component {
 
                 return (
                   <span className={`order-by__item ${isCurrent ? 'order-by__item--active' : ''}`}
+                        onClick={() => this.props.changeOrdering(item)}
                         key={item.get('key')}>
                     {item.get('name')}
                   </span>
@@ -62,6 +64,7 @@ const mapStateToProps = state => ({
 
 // Map reducer methods
 const mapDispatchToProps = dispatch => ({
+  changeOrdering: (payload) => dispatch(changeOrdering(payload)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Questions)

@@ -14,7 +14,7 @@
       color: $blue;
     }
 
-    &:hover {
+    &:hover:not(.order-by__item--active) {
       color: $dark;
     }
   }

@@ -23,9 +23,10 @@ export const reducer = (state = initialState, action) => {
       return state.set('questions', [...state.get('questions'), fromJS(q)])
 
     case actionTypes.DELETE_QUESTION:
-      console.log(action.payload);
       return state.set('questions', state.get('questions').filter(o => o.get('id') !== action.payload.get('id')));
-      // return state.set('questions', [])
+
+    case actionTypes.CHANGE_ORDERING:
+      return state.set('selectedOrderItem', action.payload);
 
     default:
       return state
