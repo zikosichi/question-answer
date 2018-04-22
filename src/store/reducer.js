@@ -8,6 +8,11 @@ const initialState = fromJS({
     { id: 1, question: 'What is this?', answer: 'This is the magic' },
     { id: 2, question: 'What is this?', answer: 'This is the magic' },
   ],
+  orderItems: [
+    { key: 'timestamp', name: 'Date' },
+    { key: 'question', name: 'Alphabet' },
+  ],
+  selectedOrderItem: { key: 'timestamp', name: 'Date' },
 })
 
 export const reducer = (state = initialState, action) => {

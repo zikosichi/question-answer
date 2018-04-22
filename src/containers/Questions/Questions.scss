@@ -1,2 +1,21 @@
-.questions {
+@import '../../scss/variables';
+
+.order-by {
+  font-weight: 200;
+  color: rgba($gray, .5);
+
+  &__item {
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: 400;
+    color: rgba($gray, .8);
+
+    &--active {
+      color: $blue;
+    }
+
+    &:hover {
+      color: $dark;
+    }
+  }
 }

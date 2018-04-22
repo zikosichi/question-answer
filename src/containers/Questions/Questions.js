@@ -21,9 +21,19 @@ class Questions extends Component {
           </h3>
 
           <div className="ml-auto">
-            <span className="text-muted font-weight-lighter">
-              Order by
-            </span>
+            <small className="order-by">
+              Order by:
+              {this.props.orderItems.map((item) => {
+                const isCurrent = this.props.selectedOrderItem.get('key') === item.get('key')
+
+                return (
+                  <span className={`order-by__item ${isCurrent ? 'order-by__item--active' : ''}`}
+                        key={item.get('key')}>
+                    {item.get('name')}
+                  </span>
+                )
+              })}
+            </small>
           </div>
         </div>
 
@@ -46,6 +56,8 @@ class Questions extends Component {
 // Map reducer props
 const mapStateToProps = state => ({
   questions: state.get('questions'),
+  orderItems: state.get('orderItems'),
+  selectedOrderItem: state.get('selectedOrderItem'),
 })
 
 // Map reducer methods
