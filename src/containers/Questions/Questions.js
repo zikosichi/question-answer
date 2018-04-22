@@ -9,9 +9,9 @@ class Questions extends Component {
     return (
       <div className="questions">
         <h1 className="questions__title">
-          Created Questions
+          Questions
         </h1>
-        <div className="list group questions__list">
+        <div className="questions__list list">
           {this.props.questions.map((item) => {
             return(
               <Question question={item}

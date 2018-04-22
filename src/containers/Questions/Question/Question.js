@@ -21,14 +21,14 @@ class Question extends Component {
 
   render() {
     const answer = (
-      <div className="questions__item__answer">
+      <div className="question-item__answer">
         {this.props.question.get('answer')}
       </div>
     )
 
     return (
-      <div className="list-group-item questions__item">
-        <div className="questions__item__question"
+      <div className="question-item list-item">
+        <div className="question-item__question"
              onClick={this.handleToggle}>
           {this.props.question.get('question')}
         </div>

@@ -1,0 +1,20 @@
+@import 'scss/variables';
+
+.question-item {
+
+  &__question {
+    padding: 15px;
+    cursor: pointer;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  &__answer {
+    padding: 15px;
+    padding-top: 0;
+    color: darken($gray, 10%);
+    font-weight: 200;
+  }
+}

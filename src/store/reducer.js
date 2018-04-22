@@ -4,7 +4,9 @@ import * as actionTypes from './actionTypes'
 const initialState = fromJS({
   isFetching: false,
   questions: [
-    { id: 0, question: 'What is this?', answer: 'This is the magic' }
+    { id: 0, question: 'What is this?', answer: 'This is the magic' },
+    { id: 0, question: 'What is this?', answer: 'This is the magic' },
+    { id: 0, question: 'What is this?', answer: 'This is the magic' },
   ],
 })
 
