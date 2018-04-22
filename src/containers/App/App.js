@@ -6,18 +6,19 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="container pt-5">
-        <div className="row">
-          <div className="col col-3">
-            Here You can find 5 questions. Feel free to create your own questions
+      <div className="app-container pt-5">
+        <div className="sidebar">
+          <h1>
+            Keep Calm and create your own questions
+          </h1>
+        </div>
+
+        <div className="container">
+          <div>
+            <Questions></Questions>
           </div>
-          <div className="col">
-            <div>
-              <Questions></Questions>
-            </div>
-            <div className="mt-5">
-              <NewQuestion></NewQuestion>
-            </div>
+          <div className="mt-5">
+            <NewQuestion></NewQuestion>
           </div>
         </div>
       </div>

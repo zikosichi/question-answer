@@ -10,7 +10,8 @@ class Questions extends Component {
 
     const noQuestions = (
       <div className="questions__list list p-3 text-muted font-weight-lighter">
-        No questions yet. Why don't you create one? 👇
+        No questions yet. Why don't you create one?
+        <span role="img" aria-label="↓"> 👇 </span>
       </div>
     )
 
