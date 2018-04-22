@@ -5,7 +5,12 @@ import { orderQuestions } from '../utils/helper'
 
 const initialState = fromJS({
   questions: [
-    { id: 0, question: 'What is this?', answer: 'This is the magic', timestamp: +Date.now() },
+    {
+      id: 0,
+      question: 'How to add a question?',
+      answer: 'Easy: just fill the form and submit it',
+      timestamp: +Date.now()
+    },
   ],
   orderItems: [
     { key: 'timestamp', name: 'Date' },
@@ -27,7 +32,7 @@ export const reducer = (state = initialState, action) => {
       const array = state.get('questions').toJS()
       array.push(q)
 
-      return state.set('questions', fromJS(array))
+      return state.set('questions', orderQuestions(fromJS(array), state.get('selectedOrderItem')))
 
     case actionTypes.DELETE_QUESTION:
       return state.set('questions', state.get('questions').filter(o => o.get('id') !== action.payload.get('id')));
