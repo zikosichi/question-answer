@@ -9,11 +9,13 @@ class NewQuestion extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
+    this.initialState = {
       question: '',
       answer: '',
       submitted: false,
     };
+
+    this.state = this.initialState
 
     this.handleNewQuestion = this.handleNewQuestion.bind(this)
     this.handleQuestionChange = this.handleQuestionChange.bind(this)
@@ -29,6 +31,7 @@ class NewQuestion extends Component {
       question: this.state.question,
       answer: this.state.answer,
     })
+    this.resetForm();
   }
 
   // On question input change
@@ -39,6 +42,11 @@ class NewQuestion extends Component {
   // On answer input change
   handleAnswerChange(event) {
     this.setState({ answer: event.target.value });
+  }
+
+  // Reset the form
+  resetForm() {
+    this.setState(this.initialState);
   }
 
   render() {
