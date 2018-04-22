@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import './Questions.css';
 
 class Questions extends Component {
@@ -9,13 +10,31 @@ class Questions extends Component {
           Created Questions
         </h1>
         <div className="list group questions__list">
-          <div className="list-group-item questions__item">
-            Question 1
-          </div>
+          {this.props.questions.map((item) => {
+            return(
+              <div className="list-group-item questions__item">
+                <div className="questions__item__question">
+                  {item.get('question')}
+                </div>
+                <div className="questions__item__answer">
+                  {item.get('answer')}
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     );
   }
 }
 
-export default Questions;
+// Map reducer props
+const mapStateToProps = state => ({
+  questions: state.get('questions'),
+})
+
+// Map reducer methods
+const mapDispatchToProps = dispatch => ({
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Questions)
