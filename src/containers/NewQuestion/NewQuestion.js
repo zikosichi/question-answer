@@ -37,7 +37,7 @@ class NewQuestion extends Component {
   render() {
     return (
       <div className="new-question">
-        <h1>New Question</h1>
+        <h3>New Question</h3>
 
         <div>
           <div className="form-group">

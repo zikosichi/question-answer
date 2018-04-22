@@ -27,10 +27,11 @@ class Question extends Component {
     )
 
     return (
-      <div className="question-item list-item">
+      <div className={'question-item list-item ' + (this.state.expanded ? 'question-item--expanded' : '')}>
         <div className="question-item__question"
              onClick={this.handleToggle}>
-          {this.props.question.get('question')}
+          <span> {this.props.question.get('question')} </span>
+          <i className="fa fa-angle-down question-item__arrow ml-auto"></i>
         </div>
         {this.state.expanded && answer}
       </div>

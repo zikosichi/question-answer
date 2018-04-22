@@ -5,8 +5,8 @@ const initialState = fromJS({
   isFetching: false,
   questions: [
     { id: 0, question: 'What is this?', answer: 'This is the magic' },
-    { id: 0, question: 'What is this?', answer: 'This is the magic' },
-    { id: 0, question: 'What is this?', answer: 'This is the magic' },
+    { id: 1, question: 'What is this?', answer: 'This is the magic' },
+    { id: 2, question: 'What is this?', answer: 'This is the magic' },
   ],
 })
 

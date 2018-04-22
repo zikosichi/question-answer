@@ -3,8 +3,11 @@
 .question-item {
 
   &__question {
+    display: flex;
+    align-items: center;
     padding: 15px;
     cursor: pointer;
+    transition: color .1s;
 
     &:hover {
       color: $blue;
@@ -14,7 +17,17 @@
   &__answer {
     padding: 15px;
     padding-top: 0;
-    color: darken($gray, 10%);
+    color: darken($gray, 20%);
     font-weight: 200;
+  }
+
+  &__arrow {
+    transition: all .2s;
+  }
+
+  &--expanded {
+    .question-item__arrow {
+      transform: rotate(180deg);
+    }
   }
 }

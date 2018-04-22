@@ -8,9 +8,9 @@ class Questions extends Component {
   render() {
     return (
       <div className="questions">
-        <h1 className="questions__title">
+        <h3 className="questions__title">
           Questions
-        </h1>
+        </h3>
         <div className="questions__list list">
           {this.props.questions.map((item) => {
             return(
