@@ -1,4 +1,8 @@
+@import './variables';
 @import './list';
+@import './bootstrap';
+
+$placeholder-color: darken($light-gray, 10%);
 
 body, html {
   margin: 0;
@@ -9,3 +13,13 @@ body, html {
 h1, h2, h3, h4, h5 {
   font-family: 'Oswald', sans-serif;
 }
+
+input, textarea {
+  outline: none;
+
+  &::-webkit-input-placeholder {
+    font-weight: 200;
+    color: $placeholder-color;
+  }
+}
+

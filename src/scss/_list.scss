@@ -1,6 +1,7 @@
 @import 'scss/variables';
 
 .list {
+  overflow: hidden;
   border-radius: 5px;
   box-shadow: 0 4px 15px rgba($dark, .07),
               0 0 2px rgba($dark, .1);

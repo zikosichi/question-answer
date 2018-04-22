@@ -8,7 +8,7 @@ class Questions extends Component {
   render() {
     return (
       <div className="questions">
-        <h3 className="questions__title">
+        <h3 className="questions__title mb-3">
           Questions
         </h3>
         <div className="questions__list list">

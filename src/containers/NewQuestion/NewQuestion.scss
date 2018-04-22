@@ -1,0 +1,14 @@
+.new-question {
+  &__question {
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+  }
+
+  &__answer {
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+    margin: 0;
+  }
+}

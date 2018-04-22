@@ -37,33 +37,30 @@ class NewQuestion extends Component {
   render() {
     return (
       <div className="new-question">
-        <h3>New Question</h3>
+        <h3 className="mb-3">New Question</h3>
 
-        <div>
-          <div className="form-group">
-            <label> Question </label>
+        <div className="list">
+          <div className="list-item">
             <input type="text"
-                   className="form-control"
+                   className="new-question__question"
                    placeholder="Enter question"
                    onChange={this.handleQuestionChange}
                    value={this.state.question}
                    />
           </div>
-          <div className="form-group">
-            <label> Answer </label>
-            <textarea className="form-control"
+          <div className="list-item">
+            <textarea rows="3"
                       placeholder="Enter answer"
+                      className="new-question__answer"
                       onChange={this.handleAnswerChange}
-                      value={this.state.answer}
-                      rows="3"></textarea>
+                      value={this.state.answer}></textarea>
           </div>
-          <button type="submit"
-                  className="btn btn-primary"
-                  onClick={this.handleNewQuestion}>
-            Submit
-          </button>
         </div>
-
+        <button type="submit"
+                className="btn btn-primary mt-3"
+                onClick={this.handleNewQuestion}>
+          Submit
+        </button>
       </div>
     );
   }

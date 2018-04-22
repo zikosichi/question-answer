@@ -1,0 +1,17 @@
+@import './variables';
+
+.btn {
+  font-weight: 200;
+  padding: 8px 15px;
+
+  &.btn-primary {
+    background-color: $blue;
+    border: none;
+    box-shadow: 0 2px 5px rgba($blue, .2),
+                0 0 2px rgba($blue, .1);
+
+    &:hover {
+      background-color: $blue + 40;
+    }
+  }
+}
