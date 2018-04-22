@@ -12,6 +12,7 @@ class NewQuestion extends Component {
     this.state = {
       question: '',
       answer: '',
+      submitted: false,
     };
 
     this.handleNewQuestion = this.handleNewQuestion.bind(this)
@@ -21,7 +22,13 @@ class NewQuestion extends Component {
 
   // On form submit
   handleNewQuestion() {
-    this.props.addNewQuestion(this.state)
+    this.setState({ submitted: true });
+    if (!this.state.question || !this.state.answer) return
+
+    this.props.addNewQuestion({
+      question: this.state.question,
+      answer: this.state.answer,
+    })
   }
 
   // On question input change
@@ -35,6 +42,18 @@ class NewQuestion extends Component {
   }
 
   render() {
+    const invalidQuestion = (
+      <small className="text-danger px-3 mb-1 d-block font-weight-lighter">
+        Please enter the question
+      </small>
+    )
+
+    const invalidAnswer = (
+      <small className="text-danger px-3 mb-1 d-block font-weight-lighter">
+        Please enter the answer
+      </small>
+    )
+
     return (
       <div className="new-question">
         <h3 className="mb-3">New Question</h3>
@@ -42,24 +61,26 @@ class NewQuestion extends Component {
         <div className="list">
           <div className="list-item">
             <input type="text"
-                   className="new-question__question"
-                   placeholder="Enter question"
-                   onChange={this.handleQuestionChange}
-                   value={this.state.question}
-                   />
+              className="new-question__question"
+              placeholder="Enter question"
+              onChange={this.handleQuestionChange}
+              value={this.state.question}
+            />
+            {!this.state.question && this.state.submitted && invalidQuestion}
           </div>
           <div className="list-item">
             <textarea rows="3"
-                      placeholder="Enter answer"
-                      className="new-question__answer"
-                      onChange={this.handleAnswerChange}
-                      value={this.state.answer}></textarea>
+              placeholder="Enter answer"
+              className="new-question__answer"
+              onChange={this.handleAnswerChange}
+              value={this.state.answer}></textarea>
+            {!this.state.answer && this.state.submitted && invalidAnswer}
           </div>
         </div>
         <button type="submit"
-                className="btn btn-primary mt-3"
-                onClick={this.handleNewQuestion}>
-          Submit
+          className="btn btn-primary mt-3"
+          onClick={this.handleNewQuestion}>
+          Create
         </button>
       </div>
     );
