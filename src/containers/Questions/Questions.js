@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './Questions.css';
 
+import Question from './Question/Question'
+
 class Questions extends Component {
   render() {
     return (
@@ -12,14 +14,9 @@ class Questions extends Component {
         <div className="list group questions__list">
           {this.props.questions.map((item) => {
             return(
-              <div className="list-group-item questions__item">
-                <div className="questions__item__question">
-                  {item.get('question')}
-                </div>
-                <div className="questions__item__answer">
-                  {item.get('answer')}
-                </div>
-              </div>
+              <Question question={item}
+                        key={item.get('id')}>
+              </Question>
             )
           })}
         </div>
