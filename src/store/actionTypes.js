@@ -1,1 +1,2 @@
 export const ADD_NEW_QUESTION = "ADD_NEW_QUESTION";
+export const DELETE_QUESTION = "DELETE_QUESTION";

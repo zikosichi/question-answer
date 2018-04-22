@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import './Question.css';
+
+// Actions
+import { deleteQuestion } from '../../../store/actions'
 
 class Question extends Component {
 
@@ -11,6 +15,13 @@ class Question extends Component {
     }
 
     this.handleToggle = this.handleToggle.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
+  }
+
+  // Handle question delete
+  handleDelete(event) {
+    event.stopPropagation()
+    this.props.deleteQuestion(this.props.question)
   }
 
   // Handle question toggle
@@ -32,7 +43,9 @@ class Question extends Component {
           <span> {this.props.question.get('question')} </span>
 
           <div className="ml-auto">
-            <i className="fa fa-trash-o mr-3 question-item__delete"></i>
+            <i className="fa fa-trash-o mr-3 question-item__delete"
+               onClick={this.handleDelete}>
+            </i>
             <i className="fa fa-angle-down question-item__arrow"></i>
           </div>
         </div>
@@ -42,4 +55,10 @@ class Question extends Component {
   }
 }
 
-export default Question
+// Map reducer methods
+const mapDispatchToProps = dispatch => ({
+  deleteQuestion: (payload) => dispatch(deleteQuestion(payload)),
+})
+
+export default connect(undefined, mapDispatchToProps)(Question)
+

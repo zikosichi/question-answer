@@ -9,3 +9,13 @@ export function addNewQuestion(payload) {
     payload
   }
 }
+
+/**
+ * Add new question
+ */
+export function deleteQuestion(payload) {
+  return {
+    type: actionTypes.DELETE_QUESTION,
+    payload
+  }
+}

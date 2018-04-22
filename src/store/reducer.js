@@ -17,6 +17,11 @@ export const reducer = (state = initialState, action) => {
       const q = { ...action.payload, id: _randomId() }
       return state.set('questions', [...state.get('questions'), fromJS(q)])
 
+    case actionTypes.DELETE_QUESTION:
+      console.log(action.payload);
+      return state.set('questions', state.get('questions').filter(o => o.get('id') !== action.payload.get('id')));
+      // return state.set('questions', [])
+
     default:
       return state
   }
