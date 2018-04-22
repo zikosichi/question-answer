@@ -2,6 +2,10 @@
 
 .app-container {
   padding-left: 25%;
+
+  @media screen and (max-width: $break-md) {
+    padding-left: 0;
+  }
 }
 
 .sidebar {
@@ -18,4 +22,10 @@
   position: fixed;
   top: 0;
   left: 0;
+
+  @media screen and (max-width: $break-md) {
+    position: relative;
+    text-align: left;
+    width: 100%;
+  }
 }

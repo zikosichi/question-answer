@@ -6,7 +6,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="app-container pt-5">
+      <div className="app-container">
         <div className="sidebar">
           <h1>
             Keep Calm and create your own questions
@@ -14,7 +14,7 @@ class App extends Component {
         </div>
 
         <div className="container">
-          <div>
+          <div className="mt-5">
             <Questions></Questions>
           </div>
           <div className="mt-5">
