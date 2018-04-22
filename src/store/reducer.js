@@ -1,12 +1,11 @@
 import { fromJS } from 'immutable'
 import * as actionTypes from './actionTypes'
 
+import { orderQuestions } from '../utils/helper'
+
 const initialState = fromJS({
-  isFetching: false,
   questions: [
-    { id: 0, question: 'What is this?', answer: 'This is the magic' },
-    { id: 1, question: 'Where is this?', answer: 'This is the magic' },
-    { id: 2, question: 'Why is this?', answer: 'This is the magic' },
+    { id: 0, question: 'What is this?', answer: 'This is the magic', timestamp: +Date.now() },
   ],
   orderItems: [
     { key: 'timestamp', name: 'Date' },
@@ -19,14 +18,23 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
 
     case actionTypes.ADD_NEW_QUESTION:
-      const q = { ...action.payload, id: _randomId() }
-      return state.set('questions', [...state.get('questions'), fromJS(q)])
+      const q = {
+        ...action.payload,
+        id: _randomId(),
+        timestamp: +Date.now()
+      }
+
+      const array = state.get('questions').toJS()
+      array.push(q)
+
+      return state.set('questions', fromJS(array))
 
     case actionTypes.DELETE_QUESTION:
       return state.set('questions', state.get('questions').filter(o => o.get('id') !== action.payload.get('id')));
 
     case actionTypes.CHANGE_ORDERING:
-      return state.set('selectedOrderItem', action.payload);
+      return state.set('selectedOrderItem', action.payload)
+                  .set('questions', orderQuestions(state.get('questions'), action.payload))
 
     default:
       return state
