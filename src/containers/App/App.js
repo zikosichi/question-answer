@@ -9,11 +9,15 @@ class App extends Component {
       <div className="container pt-5">
         <div className="row">
           <div className="col col-3">
-            Here You can find 5 questions
+            Here You can find 5 questions. Feel free to create your own questions
           </div>
           <div className="col">
-            <Questions></Questions>
-            <NewQuestion></NewQuestion>
+            <div>
+              <Questions></Questions>
+            </div>
+            <div className="mt-5">
+              <NewQuestion></NewQuestion>
+            </div>
           </div>
         </div>
       </div>
