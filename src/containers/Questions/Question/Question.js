@@ -30,7 +30,11 @@ class Question extends Component {
         <div className="question-item__question"
              onClick={this.handleToggle}>
           <span> {this.props.question.get('question')} </span>
-          <i className="fa fa-angle-down question-item__arrow ml-auto"></i>
+
+          <div className="ml-auto">
+            <i className="fa fa-trash-o mr-3 question-item__delete"></i>
+            <i className="fa fa-angle-down question-item__arrow"></i>
+          </div>
         </div>
         {this.state.expanded && answer}
       </div>

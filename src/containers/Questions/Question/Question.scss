@@ -25,6 +25,23 @@
     transition: all .2s;
   }
 
+  &__delete {
+    opacity: 0;
+    transform: translateX(5px);
+    transition: .2s all;
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  :hover {
+    .question-item__delete {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   &--expanded {
     .question-item__arrow {
       transform: rotate(180deg);
