@@ -3,7 +3,7 @@ import * as actionTypes from './actionTypes'
 
 const initialState = fromJS({
   isFetching: false,
-  questions: false,
+  questions: [],
 })
 
 export const reducer = (state = initialState, action) => {
