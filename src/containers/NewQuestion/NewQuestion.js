@@ -4,6 +4,7 @@ import './NewQuestion.css';
 
 // Actions
 import { addNewQuestion } from '../../store/actions'
+import Tooltip from '../../components/Tooltip/Tooltip'
 
 class NewQuestion extends Component {
   constructor(props) {
@@ -64,7 +65,12 @@ class NewQuestion extends Component {
 
     return (
       <div className="new-question">
-        <h3 className="mb-3">New Question</h3>
+        <h3 className="mb-3">
+          <span className="mr-3">New Question</span>
+          <Tooltip text="Here you can create a new question">
+            <i className="fa text-muted fa-info-circle"></i>
+          </Tooltip>
+        </h3>
 
         <div className="list">
           <div className="list-item">
