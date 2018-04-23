@@ -4,6 +4,7 @@ import './Questions.css';
 
 import Question from './Question/Question'
 import { changeOrdering } from '../../store/actions'
+import Tooltip from '../../components/Tooltip/Tooltip'
 
 class Questions extends Component {
   render() {
@@ -20,6 +21,9 @@ class Questions extends Component {
         <div className="d-flex align-items-center">
           <h3 className="questions__title mb-3">
             Questions
+            <Tooltip>
+              <i className="fa text-muted fa-info-circle ml-3"></i>
+            </Tooltip>
           </h3>
 
           <div className="ml-auto">
