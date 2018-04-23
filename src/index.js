@@ -14,20 +14,16 @@ import storage from 'redux-persist/lib/storage'
 import { reducer } from "./store/reducer";
 
 // dev tools middleware
-let reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  window.__REDUX_DEVTOOLS_EXTENSION__();
-if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'production') {
-  reduxDevTools = a => a;
-}
+const devtools = window.devToolsExtension || (() => noop => noop)
 
 const persistConfig = {
   key: 'root',
   storage,
 }
 
-const persistedReducer = persistReducer(persistConfig, reducer, autoRehydrate())
+const persistedReducer = persistReducer(persistConfig, reducer)
 
-let store = createStore(persistedReducer, compose(autoRehydrate(), reduxDevTools))
+let store = createStore(persistedReducer, compose(autoRehydrate(), devtools()))
 persistStore(store)
 
 ReactDOM.render(
