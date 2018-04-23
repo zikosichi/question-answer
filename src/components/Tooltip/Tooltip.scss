@@ -1,0 +1,21 @@
+@import '../../scss/variables';
+
+.qa-tooltip-container {
+  position: relative;
+}
+
+.qa-tooltip {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  font-weight: 200;
+  white-space: nowrap;
+  z-index: 5;
+  font-size: 14px;
+  padding: 10px;
+  background-color: $white;
+  font-family: 'Lato', sans-serif;
+  transform: translate(-50%, -100%);
+  box-shadow: 0 4px 15px rgba($dark, .07),
+              0 0 2px rgba($dark, .1);
+}

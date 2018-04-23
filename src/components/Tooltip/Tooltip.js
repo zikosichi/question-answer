@@ -7,14 +7,35 @@ class Tooltip extends Component {
     super(props)
 
     this.state = {
-      expanded: false
+      isVisible: false
     }
+
+    this.handleMouseEnter = this.handleMouseEnter.bind(this)
+    this.handleMouseLeave = this.handleMouseLeave.bind(this)
+  }
+
+  handleMouseEnter() {
+    this.setState({ isVisible: true })
+  }
+
+  handleMouseLeave() {
+    this.setState({ isVisible: false })
   }
 
   render() {
+    const tooltip = (
+      <div className="qa-tooltip">
+        {this.props.text}
+      </div>
+    )
+
     return (
-      <span className="qa-tooltip">
+      <span className="qa-tooltip-container"
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
+            >
         {this.props.children}
+        {this.state.isVisible && tooltip}
       </span>
     );
   }

@@ -20,9 +20,9 @@ class Questions extends Component {
       <div className="questions">
         <div className="d-flex align-items-center">
           <h3 className="questions__title mb-3">
-            Questions
-            <Tooltip>
-              <i className="fa text-muted fa-info-circle ml-3"></i>
+            <span className="mr-3">Questions</span>
+            <Tooltip text="Here you can find created questions and their answers.">
+              <i className="fa text-muted fa-info-circle"></i>
             </Tooltip>
           </h3>
 
